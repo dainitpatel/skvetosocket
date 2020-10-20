@@ -45,7 +45,7 @@ io.on('connection', (socket) => {
 
     function get_ltlng(driver_id)
     {
-        fetch('http://localhost/skveto/live-tracking.php?driver_id='+driver_id)
+        fetch('https://dreamdesigns.co.in/demo/skveto/live-tracking.php?driver_id='+driver_id)
                 .then(res => res.json())
                 .then(json => io.emit('trip',json));
     }
