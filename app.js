@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
         //io.emit('trip', "Data fetch successfully");
         var driver_id = request.driver_id;
 
-        fetch('http://localhost/skveto/live-tracking.php?driver_id='+driver_id)
+        fetch('https://dreamdesigns.co.in/demo/skveto/live-tracking.php?driver_id='+driver_id)
                 .then(res => res.json())
                 .then(json => io.emit('trip',json));
         get_ltlng(driver_id);
