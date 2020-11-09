@@ -32,8 +32,8 @@ io.on('connection', (socket) => {
         console.log(request); 
         //io.emit('trip', "Data fetch successfully");
         var driver_id = request.driver_id;
-
-        fetch('https://dreamdesigns.co.in/demo/skveto/live-tracking.php?driver_id='+driver_id)
+		var child_id = request.child_id;
+        fetch('https://dreamdesigns.co.in/demo/skveto/live-tracking.php?driver_id='+driver_id+'&child_id='+child_id)
                 .then(res => res.json())
                 .then(json => io.emit('trip',json));
         get_ltlng(driver_id);
@@ -43,9 +43,9 @@ io.on('connection', (socket) => {
     });
     // listen for message from user 
 
-    function get_ltlng(driver_id)
+    function get_ltlng(driver_id,child_id)
     {
-        fetch('https://dreamdesigns.co.in/demo/skveto/live-tracking.php?driver_id='+driver_id)
+        fetch('https://dreamdesigns.co.in/demo/skveto/live-tracking.php?driver_id='+driver_id+'&child_id='+child_id)
                 .then(res => res.json())
                 .then(json => io.emit('trip',json));
     }
