@@ -8,6 +8,8 @@ const fetch = require('node-fetch');
 var app = express();
 var server = require("http").createServer(app);
 var io = socketIO(server);
+io.set("transports", ["xhr-polling"]); 
+io.set("polling duration", 10);
 /*var mysql = require('mysql');
 var db = mysql.createConnection({
     connectionLimit: 100,
